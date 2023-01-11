@@ -15,12 +15,14 @@ exports.displayAllPosts = async (req, res) => {
 }
 
 // Display one post
-exports.displayOnePost = [getPost, (req, res) => {
-    res.json(res.post)
-}]
+exports.displayOnePost = [ 
+    getPost, 
+    (req, res) => { res.json(res.post)}
+]
 
 // Add new post
 exports.addPost = [
+    authenticateToken,
     body(['title'], 'Title must be specified').trim().isLength({ min: 1 }).escape(),
     body(['text'], 'Text must be specified').trim().isLength({ min: 1 }).escape(),
     body(['readtime'], 'Readtime must be specified').isInt().escape(),
@@ -53,6 +55,7 @@ exports.addPost = [
 
 // Update existing post
 exports.updatePost = [
+    authenticateToken,
     getPost,
     (req, res, next) => {
         if (req.body.title != null) { body(['title'], 'Title must be specified').trim().isLength({ min: 1 }).escape() }
@@ -98,7 +101,10 @@ exports.updatePost = [
 ]
 
 // Delete post
-exports.deletePost = [getPost, async (req, res) => {
+exports.deletePost = [
+    authenticateToken,
+    getPost, 
+    async (req, res) => {
     try {
         await res.post.remove()
         res.status(200).json({ message: 'Post deleted' })
@@ -149,14 +155,17 @@ exports.addComment = [
 ]
 
 // Delete a comment
-exports.deleteComment = async (req, res) => {
-    try {
-        await Comment.findByIdAndRemove(req.params.id)
-        res.status(200).json({ message: 'Comment deleted' })
-    } catch (err) {
-        res.status(500).json({ message: err.message })
+exports.deleteComment = [
+    authenticateToken, 
+    async (req, res) => {
+        try {
+            await Comment.findByIdAndRemove(req.params.id)
+            res.status(200).json({ message: 'Comment deleted' })
+        } catch (err) {
+            res.status(500).json({ message: err.message })
+        }
     }
-}
+]
 
 // MIDDLEWARE FUNCTIONS
 
