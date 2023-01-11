@@ -24,6 +24,6 @@ router.get('/:id/comments', postController.displayAllComments)
 router.post('/:id/comments', postController.addComment)
 
 // DELETE: delete a comment to a post
-router.delete('/:id/comments', postController.deleteComment)
+router.delete('/comments/:id', postController.deleteComment)
 
 module.exports = router

@@ -5,8 +5,7 @@ const PostSchema = new mongoose.Schema(
         title: { type: String, required: true, maxLength: 100 },
         text: { type: String, required: true },
         published: { type: Boolean, default: false },
-        author: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-        readtime: { type: Integer },
+        readtime: { type: Number },
     }, 
     {
         timestamps: true,
