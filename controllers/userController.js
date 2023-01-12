@@ -26,16 +26,17 @@ exports.signUp = [
                     return
                 }
 
-                // Handle errors including existing user with same email
-                if(!errors.isEmpty() || found_email !== null) {
+                // Return error if user already exists
+                if(found_email) {
+                    res.status(409).json({ message: 'User already exists'})
+                    return
+                }
 
-                    const existingUser = 
-                        found_email == null ? 'false' : 'true'
-
+                // Handle input errors
+                if(!errors.isEmpty()) {
                     res.status(400).json({
                         user,
                         errors,
-                        existingUser
                     })
                     return
                 } else {
