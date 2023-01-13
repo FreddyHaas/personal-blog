@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const { DateTime } = require('luxon')
 
 const PostSchema = new mongoose.Schema(
     {
@@ -11,5 +12,11 @@ const PostSchema = new mongoose.Schema(
         timestamps: true,
     }
 )
+
+// Format timestamps
+
+PostSchema.virtual('date').get(function () {
+    return DateTime.fromJSDate(this.updatedAt).toFormat('dd LLL yy')
+})
 
 module.exports = mongoose.model('Post', PostSchema)
