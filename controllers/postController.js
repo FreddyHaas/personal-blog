@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 // Display all posts
 exports.displayAllPosts = async (req, res) => {
     try {
-        const posts = await Post.find().sort({ updatedAt: -1 }).populate('author')
+        const posts = await Post.find().sort({ updatedAt: -1 })
         res.json(posts)
     } catch (err) {
         res.status(500).json({ message: err.message })
@@ -42,6 +42,8 @@ exports.addPost = [
         const post = new Post ({
             title: req.body.title,
             text: req.body.text,
+            readtime: req.body.readtime,
+            published: req.body.published,
         })
 
         try {
@@ -56,13 +58,10 @@ exports.addPost = [
 // Update existing post
 exports.updatePost = [
     authenticateToken,
-    getPost,
-    (req, res, next) => {
-        if (req.body.title != null) { body(['title'], 'Title must be specified').trim().isLength({ min: 1 }).escape() }
-        if (req.body.text != null) { body(['text'], 'Text must be specified').trim().isLength({ min: 1 }).escape() }
-        if (req.body.readtime != null) { body(['readtime'], 'Readtime must be specified').isInt().escape() }
-        next()
-    },
+    body(['title'], 'Title must be specified').trim().isLength({ min: 1 }).escape(),
+    body(['text'], 'Text must be specified').trim().isLength({ min: 1 }).escape(),
+    body(['readtime'], 'Readtime must be specified').isInt().escape(),
+    
     async (req, res) => {
 
         const errors = validationResult(req)
@@ -75,25 +74,17 @@ exports.updatePost = [
             return
         }
 
-        if(req.body.title != null) {
-            res.post.title = req.body.title
-        }
-
-        if(req.body.text != null) {
-            res.post.text = req.body.text
-        }
-
-        if(req.body.readtime != null) {
-            res.post.readtime = req.body.readtime
-        }
-
-        if(req.body.published != null) {
-            res.post.published = req.body.published
-        }
+        const post = new Post ({
+            _id: req.body.id,
+            title: req.body.title,
+            text: req.body.text,
+            readtime: req.body.readtime,
+            published: req.body.published,
+        })
 
         try {
-            const updatedPost = await res.post.save()
-            res.json(updatedPost)
+            const updatedPost = await Post.findByIdAndUpdate(req.body.id, post)
+            res.status(201).json(updatedPost)
         } catch (err) {
             res.status(400).json({ message: err.message })
         }
@@ -167,7 +158,7 @@ exports.deleteComment = [
     }
 ]
 
-// MIDDLEWARE FUNCTIONS
+// ADDITIONAL MIDDLEWARE FUNCTIONS
 
 // Get post from id
 async function getPost (req, res, next) {

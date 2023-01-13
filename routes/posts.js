@@ -12,7 +12,7 @@ router.get('/:id', postController.displayOnePost)
 router.post('/', postController.addPost)
 
 // UPDATE: update an existing post
-router.patch('/:id', postController.updatePost)
+router.post('/:id', postController.updatePost)
 
 // DELETE: delete an existing post
 router.delete('/:id', postController.deletePost)
