@@ -29,7 +29,6 @@ const Signup = () => {
     const [matchFocus, setMatchFocus] = useState(false)
 
     const [errMsg, setErrMsg] = useState('')
-    const [success, setSuccess] = useState(false)
 
     // Set focus to first item
     useEffect(() => {
@@ -55,7 +54,7 @@ const Signup = () => {
     }, [email, password, matchPwd])
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault()
         try {
             const response = await axios.post(SIGNUP_URL,
                 JSON.stringify({email, password}), 
@@ -69,7 +68,7 @@ const Signup = () => {
             setEmail('')
             setPassword('')
             setMatchPwd('')
-            navigate('/posts')
+            navigate('/home')
             // clear input fields
         } catch (err) {
             if(!err?.response) {
@@ -84,14 +83,6 @@ const Signup = () => {
 
     return (
         <>
-            {success ? (
-                <section>
-                    <h1>Success!</h1>
-                    <p>
-                        <a href='#'>Login</a>
-                    </p>
-                </section>
-            ) : (
                 <section className='signup'>
                     <p className={errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
                     <h1>Sign up</h1>
@@ -161,7 +152,6 @@ const Signup = () => {
                         </span>
                     </p>
                 </section>
-            )}
         </>
     )
 }

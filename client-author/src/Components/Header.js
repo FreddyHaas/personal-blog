@@ -12,8 +12,11 @@ const Header = () => {
 
     return (
         <section className='header'>
-            <Link to="/home" id="logo">MyBlog</Link>
-            <button id='logout-button' onClick={logout}>Logout</button>
+            <Link to='/home' id='logo'>MyBlog</Link>
+            <div>
+                <Link to='/home/createpost' id='create-post-button'>Add post</Link>
+                <button id='logout-button' onClick={logout}>Logout</button>
+            </div>
         </section>
     )
 }

@@ -1,12 +1,12 @@
 import Header from './Header'
-import Posts from './Posts'
+import AllPosts from './AllPosts'
 
 const Home = () => {
 
     return (
         <>
             <Header/>
-            <Posts/>
+            <AllPosts/>
         </>
     )
 }

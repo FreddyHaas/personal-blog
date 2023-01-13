@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 
-const PostDetail = () => {
+const PostEdit = () => {
 
     const { id } = useParams()
     console.log(id);
@@ -10,4 +10,4 @@ const PostDetail = () => {
     )
 }
 
-export default PostDetail
+export default PostEdit

@@ -39,6 +39,8 @@ const Posts = () => {
                     title={post.title}
                     text={post.text}
                     date={post.updatedAt}
+                    readtime={post.readtime}
+                    published={post.published}
                     />
                 )
             })

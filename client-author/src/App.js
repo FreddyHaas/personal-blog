@@ -2,7 +2,8 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 import Layout from './components/Layout'
 import Home from './components/Home'
-import PostDetail from './components/PostDetail'
+import PostEdit from './components/PostEdit'
+import PostForm from './components/PostForm'
 import RequireAuth from './components/RequireAuth'
 import { Routes, Route } from 'react-router-dom'
 
@@ -17,7 +18,8 @@ function App() {
 
       <Route element={<RequireAuth />}>
         <Route path='/home' element={<Home />} />
-        <Route path='/home/posts/:id' element={<PostDetail />} />
+        <Route path='/home/posts/:id' element={<PostEdit />} />
+        <Route path='/home/createpost' element={<PostForm />} />
       </Route>
 
     </Routes> 
