@@ -195,7 +195,7 @@ button:disabled {
   padding-bottom: 10px;
 }
 
-.post a, #create-post-button {
+.post a, #create-post-button, #delete-post-button {
   font-weight: 500;
   color: white;
   text-decoration: none;
@@ -266,7 +266,11 @@ input[type='checkbox'] {
 
 input[type='number'] {
   height: 28px;
-  width: 40px;
+  padding: 0px 4px;
+}
+
+#delete-post-button {
+  background-color: lightsalmon;  
 }
 
 
