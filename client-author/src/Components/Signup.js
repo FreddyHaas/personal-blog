@@ -1,18 +1,20 @@
 import { useRef, useState, useEffect } from 'react'
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from 'react-router-dom'
+import useAuth from '../hooks/useAuth'
 import axios from '../api/axios'
+import { useNavigate } from 'react-router-dom'
 
-// Import faCheck, faTimes, faInfoCircle
-
-// Implement spell 
+// Spellcheck
 const EMAIL_REGEX = /\S+@\S+/
 const PASSWORD_REGEX = /[a-zA-Z0-9]/
 const SIGNUP_URL = '/user/signup'
 
 const Signup = () => {
+    const { setAuth } = useAuth()
+    const navigate = useNavigate()
     const emailRef = useRef()
-    const errRef = useRef()
     
     const [email, setEmail] = useState('')
     const [validEmail, setValidEmail] = useState(false)
@@ -62,8 +64,12 @@ const Signup = () => {
                     withCredentials: true 
                 }
             )
-            console.log(response)
-            setSuccess(true);
+            const accessToken = response?.data?.accessToken
+            setAuth({ email, password, accessToken })
+            setEmail('')
+            setPassword('')
+            setMatchPwd('')
+            navigate('/posts')
             // clear input fields
         } catch (err) {
             if(!err?.response) {
@@ -73,7 +79,6 @@ const Signup = () => {
             } else {
                 setErrMsg('Signup failed')
             }
-            errRef.current.focus()
         }
     }
 
@@ -87,8 +92,8 @@ const Signup = () => {
                     </p>
                 </section>
             ) : (
-                <section>
-                    <p ref={errRef} className={errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
+                <section className='signup'>
+                    <p className={errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
                     <h1>Sign up</h1>
                     <form onSubmit={handleSubmit}>
                         <label htmlFor='email'>
@@ -149,11 +154,10 @@ const Signup = () => {
 
                         <button disabled={!validEmail || !validPwd || !validMatch ? true : false}>Sign up</button>
                     </form>
-                    <p className='login-message'>
+                    <p className='alternative-message'>
                         Already signed up?<br/>
                         <span className="line">
-                            {/* Insert router link here */}
-                            <a href='#'>Login</a>
+                            <Link to='/login'>Login</Link>
                         </span>
                     </p>
                 </section>

@@ -17,6 +17,8 @@ body {
   background-color: white;
 }
 
+/* Login & signup */ 
+
 .App {
   display: flex;
   flex-direction: column;
@@ -26,7 +28,7 @@ body {
   padding: 10px;
 }
 
-section {
+.login, .signup {
   width: 100%;
   max-width: 420px;
   min-height: 400px;
@@ -120,9 +122,82 @@ button:disabled {
   display: inline-block;
 }
 
-.login-message {
+.alternative-message {
   font-size: 14px;
   font-weight: 500;
   margin-top: 14px;
 }
 
+/* Header section */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  padding: 16px;
+}
+
+.header button {
+  align-items: center;
+  margin-top: 0px;
+  background-color: white;
+  color: darkgrey;
+  cursor: pointer;
+}
+
+.header button:hover {
+  color: black;
+}
+
+#logo {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+/* Homepage with overview of posts */
+
+.post-container {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.post {
+  border: solid 1px lightgrey;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 1100px;
+}
+
+.post p {
+ white-space: pre-wrap;
+ overflow: hidden;
+}
+
+.post p:nth-child(2) {
+  font-size: 16px;
+  color: darkgrey;
+  font-weight: 500;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 10px;
+}
+
+.post a {
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  background-color: darkgreen;
+  font-size: 20px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  width: fit-content;
+  cursor: pointer;
+  margin-top: 20px;
+}
