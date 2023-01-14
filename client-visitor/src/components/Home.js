@@ -4,6 +4,7 @@ import Post from './Post'
 import { useState, useEffect } from 'react'
 
 const GETPOST_URL = '/posts'
+const MAX_CHARACTERS = 200
 
 const Home = () => {
     const [posts, setPosts] = useState()
@@ -28,21 +29,27 @@ const Home = () => {
         }, [])
         
         console.log(posts)
-    
+        
+        // Display post
         const displayPosts = () => {
             const display = []
             
             if(posts !== undefined) {
+
                 posts.forEach((post) => {
+
+                    const shortenedText = `${post.text.slice(0, MAX_CHARACTERS)} ...`
+
                     if(post.published) {
                         display.push(
                             <Post
                             key={post._id}
                             id={post._id}
                             title={post.title}
-                            text={post.text}
+                            text={shortenedText}
                             date={post.updatedAt}
                             readtime={post.readtime}
+                            short={true}
                             />
                         )
                     }
@@ -58,7 +65,7 @@ const Home = () => {
             <Header />
             <section className='post-container'>
                     <p className={errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
-                        {displayedPosts} 
+                    {displayedPosts} 
             </section>
         </>
     )

@@ -4,7 +4,7 @@ const Header = () => {
 
     return (
         <section className='header'>
-            <Link to='/home' id='logo'>MyBlog</Link>
+            <Link to='/' id='logo'>MyBlog</Link>
         </section>
     )
 }
