@@ -33,8 +33,6 @@ const PostComments = ({ id }) => {
 
         if (comments !== undefined) {
 
-            console.log(comments)
-
             comments.forEach(comment => {
                 display.push(
                     <Comment
@@ -53,21 +51,23 @@ const PostComments = ({ id }) => {
     // Function to update comments after adding new comment
 
     const addCommentToState = (newComment) => {
-        setComments([newComment, ...comments])
+        setComments([...comments, newComment])
         return
     }
 
 
     return (
         <>
-            <section className='post-container'>
                 <p className={errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
                 <CommentForm 
                     id={id}
                     addCommentToState={addCommentToState}
-                />    
-                {displayedComments} 
-            </section>
+                />  
+                <div className='comments'>
+                    <h3>Comments</h3>
+                    {displayedComments.length == 0 ? 
+                        <p id='no-comments'>No comments yet</p> : displayedComments} 
+                </div>  
         </>
     )
 

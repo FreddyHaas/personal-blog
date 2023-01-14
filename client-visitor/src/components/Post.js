@@ -18,7 +18,7 @@ const Post = ({ title, text, date, id, readtime, short }) => {
         )
     } else {
         return (
-            <div className='post'>
+            <div className='post-long'>
                 <h2>{title}</h2>
                 <p>{date ? format(parseISO(date), 'dd LLL yyyy' ) : ''}     {readtime} min read</p>
                 <p>{text}</p>

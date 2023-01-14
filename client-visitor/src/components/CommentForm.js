@@ -17,7 +17,6 @@ const CommentForm = ({ id, addCommentToState }) => {
                     headers: { 'Content-Type': 'application/json' }
                 }
             )
-            console.log(response)
             addCommentToState(response.data)
             setName('')
             setComment('')
@@ -32,24 +31,28 @@ const CommentForm = ({ id, addCommentToState }) => {
     }  
 
     return (
+        <>
+        <h3>Add comment</h3>
         <form className='add-comment' onSubmit={addComment}>
-                        <label htmlFor='name'>Name</label>
+                        <label htmlFor='name'>Name: </label>
                         <input
                             type='text'
                             id='name'
                             onChange={(e) => setName(e.target.value)}
                             value={name}
                         />
-                        <label htmlFor='comment'>Comment</label>
-                        <input
+                        <label htmlFor='comment'>Comment: </label>
+                        <textarea
                             type='text'
                             id='comment'
                             onChange={(e) => setComment(e.target.value)}
                             value={comment}
-                        />
+                            >
+                            </textarea>
                         <button>Add</button>
                         <p className={errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
                     </form>
+        </>
      )
 }
 
