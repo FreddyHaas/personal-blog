@@ -107,7 +107,7 @@ exports.deletePost = [
 // Display all comments for a post
 exports.displayAllComments = async (req, res) => {
     try {
-        const comments = await Comment.find({ posts: req.params.id }).sort({ updatedAt: 1 })
+        const comments = await Comment.find({ post: req.params.id }).sort({ updatedAt: 1 })
         res.json(comments)
     } catch (err) {
         res.status(400).json({ message: err.message })
