@@ -22,7 +22,11 @@ db.once("open", () => console.log("Connected to Database"))
 
 app.use(
     cors({
-        origin: ["http://localhost:3000", "http://localhost:3001"],
+        origin: [
+            "http://localhost:3000",
+            "http://localhost:3001",
+            "https://personal-blog-visitor.web.app",
+        ],
         credentials: true,
     })
 )
