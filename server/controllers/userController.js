@@ -22,7 +22,6 @@ exports.signUp = [
         // Check if user already exists
         User.findOne({ email: req.body.email }).exec((err, foundEmail) => {
             if (err) {
-                console.log(err)
                 res.status(400).json({ err })
                 return
             }
