@@ -1,19 +1,20 @@
-import { useState, useEffect } from 'react'
-import Post from './Post'
-import axios from '../api/axios'
-const GETPOST_URL = '/posts'
+import { useState, useEffect } from "react"
+import Post from "./Post"
+import axios from "../api/axios"
 
-const Posts = () => {
+const GETPOST_URL = "/posts"
+
+function Posts() {
     const [posts, setPosts] = useState()
-    const [errMsg, setErrMsg] = useState()    
+    const [errMsg, setErrMsg] = useState()
 
     // Load posts
-    async function loadPosts () {
+    async function loadPosts() {
         try {
-            const response = await axios.get(GETPOST_URL) 
+            const response = await axios.get(GETPOST_URL)
             return response.data
         } catch (err) {
-            setErrMsg('Unable to load posts')
+            return setErrMsg("Unable to load posts")
         }
     }
 
@@ -24,40 +25,35 @@ const Posts = () => {
         }
         storePosts()
     }, [])
-    
-    console.log(posts)
 
     const displayPosts = () => {
         const display = []
-        
-        if(posts !== undefined) {
-            posts.map((post) => {
+
+        if (posts !== undefined) {
+            posts.forEach((post) => {
                 display.push(
                     <Post
-                    key={post._id}
-                    id={post._id}
-                    title={post.title}
-                    text={post.text}
-                    date={post.updatedAt}
-                    readtime={post.readtime}
-                    published={post.published}
+                        key={post._id}
+                        id={post._id}
+                        title={post.title}
+                        text={post.text}
+                        date={post.updatedAt}
+                        readtime={post.readtime}
+                        published={post.published}
                     />
                 )
             })
         }
-
         return display
     }
 
     const displayedPosts = displayPosts()
 
     return (
-        <>
-            <section className='post-container'>
-                <p className={errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
-                    {displayedPosts} 
-            </section>
-        </>
+        <section className="post-container">
+            <p className={errMsg ? "errmsg" : "offscreen"}>{errMsg}</p>
+            {displayedPosts}
+        </section>
     )
 }
 

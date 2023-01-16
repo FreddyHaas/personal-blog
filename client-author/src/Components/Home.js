@@ -1,12 +1,11 @@
-import Header from './Header'
-import AllPosts from './AllPosts'
+import Header from "./Header"
+import AllPosts from "./AllPosts"
 
-const Home = () => {
-
+function Home() {
     return (
         <>
-            <Header/>
-            <AllPosts/>
+            <Header />
+            <AllPosts />
         </>
     )
 }

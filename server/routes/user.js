@@ -1,21 +1,21 @@
-const express = require('express')
+const express = require("express")
 const router = express.Router()
-const jwt = require('jsonwebtoken')
-const passport = require('passport')
-require('dotenv').config()
-const userController = require('../controllers/userController')
+const jwt = require("jsonwebtoken")
+const passport = require("passport")
+require("dotenv").config()
+const userController = require("../controllers/userController")
 
 // POST: sign up
-router.post('/signup', userController.signUp)
+router.post("/signup", userController.signUp)
 
 // POST: login
-router.post('/login', function (req, res, next) {
+router.post("/login", function (req, res, next) {
     // Authenticate user
-    passport.authenticate('local', { session: false }, (err, user, next) => {
+    passport.authenticate("local", { session: false }, (err, user, next) => {
         if (err || !user) {
             return res.status(400).json({
-                message: 'Not possible to login',
-                user: user
+                message: "Not possible to login",
+                user: user,
             })
         }
         req.login(user, { session: false }, (err) => {
@@ -23,7 +23,11 @@ router.post('/login', function (req, res, next) {
                 res.send(err)
             }
             // Create JSON Webtoken
-            const accessToken = jwt.sign({user}, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1d' })
+            const accessToken = jwt.sign(
+                { user },
+                process.env.ACCESS_TOKEN_SECRET,
+                { expiresIn: "1d" }
+            )
             res.json({ accessToken: accessToken })
         })
     })(req, res)

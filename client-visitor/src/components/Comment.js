@@ -1,12 +1,9 @@
-const Comment = ({ name, text}) => {
-
+function Comment({ name, text }) {
     return (
-        <>
-        <div className='comment'>
+        <div className="comment">
             <p>{name}</p>
             <p>{text}</p>
         </div>
-        </>
     )
 }
 

@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const { DateTime } = require('luxon')
+const mongoose = require("mongoose")
+const { DateTime } = require("luxon")
 
 const PostSchema = new mongoose.Schema(
     {
@@ -7,19 +7,19 @@ const PostSchema = new mongoose.Schema(
         text: { type: String, required: true },
         published: { type: Boolean, default: false },
         readtime: { type: Number },
-    }, 
+    },
     {
         timestamps: true,
     },
     {
-        getters: true
+        getters: true,
     }
 )
 
 // Format timestamps
 
-PostSchema.virtual('date').get(function () {
-    return DateTime.fromJSDate(this.updatedAt).toFormat('dd LLL yy')
+PostSchema.virtual("date").get(function () {
+    return DateTime.fromJSDate(this.updatedAt).toFormat("dd LLL yy")
 })
 
-module.exports = mongoose.model('Post', PostSchema)
+module.exports = mongoose.model("Post", PostSchema)

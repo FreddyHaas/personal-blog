@@ -1,20 +1,19 @@
-import { useState, useEffect } from 'react'
-import Comment from './Comment'
-import CommentForm from './CommentForm'
-import axios from '../api/axios'
+import { useState, useEffect } from "react"
+import Comment from "./Comment"
+import CommentForm from "./CommentForm"
+import axios from "../api/axios"
 
-const PostComments = ({ id }) => {
+function PostComments({ id }) {
     const [comments, setComments] = useState()
-    const [errMsg, setErrMsg] = useState()  
+    const [errMsg, setErrMsg] = useState()
 
-
-    // Load comments 
-    async function loadComments () {
+    // Load comments
+    async function loadComments() {
         try {
             const response = await axios.get(`/posts/${id}/comments`)
             return response.data
         } catch (err) {
-            setErrMsg('Unable to load posts')
+            return setErrMsg("Unable to load posts")
         }
     }
 
@@ -26,14 +25,12 @@ const PostComments = ({ id }) => {
         storeComments()
     }, [])
 
-    // Display comments 
+    // Display comments
     const displayComments = () => {
-
         const display = []
 
         if (comments !== undefined) {
-
-            comments.forEach(comment => {
+            comments.forEach((comment) => {
                 display.push(
                     <Comment
                         key={comment._id}
@@ -46,31 +43,27 @@ const PostComments = ({ id }) => {
         return display
     }
 
-    const displayedComments = displayComments()  
+    const displayedComments = displayComments()
 
     // Function to update comments after adding new comment
-
     const addCommentToState = (newComment) => {
         setComments([...comments, newComment])
-        return
     }
-
 
     return (
         <>
-                <p className={errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
-                <CommentForm 
-                    id={id}
-                    addCommentToState={addCommentToState}
-                />  
-                <div className='comments'>
-                    <h3>Comments</h3>
-                    {displayedComments.length == 0 ? 
-                        <p id='no-comments'>No comments yet</p> : displayedComments} 
-                </div>  
+            <p className={errMsg ? "errmsg" : "offscreen"}>{errMsg}</p>
+            <CommentForm id={id} addCommentToState={addCommentToState} />
+            <div className="comments">
+                <h3>Comments</h3>
+                {displayedComments.length === 0 ? (
+                    <p id="no-comments">No comments yet</p>
+                ) : (
+                    displayedComments
+                )}
+            </div>
         </>
     )
-
 }
 
 export default PostComments

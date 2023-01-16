@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
 
-const Header = () => {
-
+function Header() {
     return (
-        <section className='header'>
-            <Link to='/' id='logo'>MyBlog</Link>
+        <section className="header">
+            <Link to="/" id="logo">
+                MyBlog
+            </Link>
         </section>
     )
 }

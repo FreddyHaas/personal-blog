@@ -1,13 +1,14 @@
-import { createContext, useState } from 'react'
+import { createContext, useState } from "react"
 
 const AuthContext = createContext({})
 
-export const AuthProvider = ({ children }) => {
+export function AuthProvider({ children }) {
     const [auth, setAuth] = useState({})
 
     return (
+        // eslint-disable-next-line
         <AuthContext.Provider value={{ auth, setAuth }}>
-            {children }
+            {children}
         </AuthContext.Provider>
     )
 }

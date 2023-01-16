@@ -1,21 +1,27 @@
-import useAuth from '../hooks/useAuth'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link } from "react-router-dom"
+import useAuth from "../hooks/useAuth"
 
-const Header = () => {
+function Header() {
     const { setAuth } = useAuth()
     const navigate = useNavigate()
 
     const logout = async () => {
         setAuth({})
-        navigate('/')
-    } 
+        navigate("/")
+    }
 
     return (
-        <section className='header'>
-            <Link to='/home' id='logo'>MyBlog</Link>
+        <section className="header">
+            <Link to="/home" id="logo">
+                MyBlog
+            </Link>
             <div>
-                <Link to='/home/createpost' id='create-post-button'>Add post</Link>
-                <button id='logout-button' onClick={logout}>Logout</button>
+                <Link to="/home/createpost" id="create-post-button">
+                    Add post
+                </Link>
+                <button type="button" id="logout-button" onClick={logout}>
+                    Logout
+                </button>
             </div>
         </section>
     )

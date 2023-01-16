@@ -1,276 +1,278 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
 }
 
 html {
-  font-size: 18px;
-  color: black;
+    font-size: 18px;
+    color: black;
 }
 
 body {
-  min-height: 100vh;
-  background-color: white;
+    min-height: 100vh;
+    background-color: white;
 }
 
 #root {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Login & signup */ 
+/* Login & signup */
 
 .App {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10px;
 }
 
-.login, .signup {
-  width: 100%;
-  width: min(400px, 90vw);
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 25px;
-  background-color: white;
-  box-shadow: 0px 0px 4px 2px rgb(216, 216, 216);
-  border-radius: 8px;
+.login,
+.signup {
+    width: 100%;
+    width: min(400px, 90vw);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 25px;
+    background-color: white;
+    box-shadow: 0px 0px 4px 2px rgb(216, 216, 216);
+    border-radius: 8px;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
 }
 
-a, a:visited {
-  color: black;
+a,
+a:visited {
+    color: black;
 }
 
-input[type='email'],
-input[type='password'],
+input[type="email"],
+input[type="password"],
 textarea {
-  font-size: 18px;
-  padding: 2px 6px;
-  border-radius: 4px;
-  border: 1px solid grey;
+    font-size: 18px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid grey;
 }
 
 label,
 button {
-  margin-top: 22px;
-} 
+    margin-top: 22px;
+}
 
 label {
-  margin-bottom: 2px;
+    margin-bottom: 2px;
 }
 
 button {
-  font-size: 22px;
-  padding: 4px;
-  border-radius: 10px;
-  border: none;
-  background-color: black;
-  color: white;
-  font-weight: 500;
+    font-size: 22px;
+    padding: 4px;
+    border-radius: 10px;
+    border: none;
+    background-color: black;
+    color: white;
+    font-weight: 500;
 }
 
 button:disabled {
-  background-color: grey;
+    background-color: grey;
 }
 
 .instructions {
-  font-size: 14px;
-  color: red;
-  padding: 4px 8px;
+    font-size: 14px;
+    color: red;
+    padding: 4px 8px;
 }
 
 .instructions > svg {
-  margin-right: 4px;
+    margin-right: 4px;
 }
 
 .offscreen,
 .hide {
-  display: none;
+    display: none;
 }
 
 .valid {
-  color: limegreen;
-  margin-left: 4px;
+    color: limegreen;
+    margin-left: 4px;
 }
 
 .invalid {
-  color: red;
-  margin-left: 4px;
+    color: red;
+    margin-left: 4px;
 }
 
 .errmsg {
-  background-color: rgb(253, 214, 220);
-  color: firebrick;
-  font-weight: bold;
-  padding: 8px;
-  margin-bottom: 8px;
-  border-radius: 4px;
+    background-color: rgb(253, 214, 220);
+    color: firebrick;
+    font-weight: bold;
+    padding: 8px;
+    margin-bottom: 8px;
+    border-radius: 4px;
 }
 
 .line {
-  display: inline-block;
+    display: inline-block;
 }
 
 .alternative-message {
-  font-size: 14px;
-  font-weight: 500;
-  margin-top: 14px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 14px;
 }
 
 /* Header section */
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100vw;
-  padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    padding: 16px;
 }
 
 .header button {
-  align-items: center;
-  margin-top: 0px;
-  background-color: white;
-  color: darkgrey;
-  cursor: pointer;
+    align-items: center;
+    margin-top: 0px;
+    background-color: white;
+    color: darkgrey;
+    cursor: pointer;
 }
 
 .header button:hover {
-  color: black;
+    color: black;
 }
 
 #logo {
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 28px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 28px;
 }
 
 /* Homepage with overview of posts */
 
 .post-container {
-  width: 100%;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .post {
-  border: solid 1px lightgrey;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 1100px;
+    border: solid 1px lightgrey;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 1100px;
 }
 
 .post p {
- white-space: pre-wrap;
- overflow: hidden;
+    white-space: pre-wrap;
+    overflow: hidden;
 }
 
 .post p:nth-child(2) {
-  font-size: 16px;
-  color: darkgrey;
-  font-weight: 500;
-  border-bottom: 1px solid lightgrey;
-  padding-bottom: 10px;
+    font-size: 16px;
+    color: darkgrey;
+    font-weight: 500;
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 10px;
 }
 
-.post a, #create-post-button, #delete-post-button {
-  font-weight: 500;
-  color: white;
-  text-decoration: none;
-  background-color: darkgreen;
-  font-size: 20px;
-  padding: 4px 12px;
-  border-radius: 8px;
-  width: fit-content;
-  cursor: pointer;
-  margin-top: 20px;
-  margin-right: 10px;
+.post a,
+#create-post-button,
+#delete-post-button {
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    background-color: darkgreen;
+    font-size: 20px;
+    padding: 4px 12px;
+    border-radius: 8px;
+    width: fit-content;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-right: 10px;
 }
 
 /* Create new blog page */
 
 .create-post {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0px 0px 4px 2px rgb(216, 216, 216);
-  border-radius: 8px;
-  padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 4px 2px rgb(216, 216, 216);
+    border-radius: 8px;
+    padding: 20px;
 }
 
 .create-post h1 {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .create-post-form {
-  gap: 20px;
+    gap: 20px;
 }
 
-.create-post-form input, 
+.create-post-form input,
 .create-post-form textarea {
-  font-size: 20px;
-  border: solid 1px darkgrey;
-  border-radius: 4px;
-  padding: 4px;
+    font-size: 20px;
+    border: solid 1px darkgrey;
+    border-radius: 4px;
+    padding: 4px;
 }
 
 #readtime {
-  text-align: center;
+    text-align: center;
 }
 
 textarea {
-  width: min(80vw, 1000px);
-  height: 400px;
-  resize: none;
+    width: min(80vw, 1000px);
+    height: 400px;
+    resize: none;
 }
 
 #create-post-button {
-  margin-top: 10px;
+    margin-top: 10px;
 }
- 
+
 .create-post-form label {
-  font-size: 20px;
-  font-weight: 500;
-  margin: 0px;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0px;
 }
 
-input[type='checkbox'], input[type='number'] {
-  margin-left: 5px;
+input[type="checkbox"],
+input[type="number"] {
+    margin-left: 5px;
 }
 
-input[type='checkbox'] {
-  transform: scale(1.6);
-  margin-left: 10px;
+input[type="checkbox"] {
+    transform: scale(1.6);
+    margin-left: 10px;
 }
 
-input[type='number'] {
-  height: 28px;
-  padding: 0px 4px;
+input[type="number"] {
+    height: 28px;
+    padding: 0px 4px;
 }
 
 #delete-post-button {
-  background-color: lightsalmon;  
+    background-color: lightsalmon;
 }
-
-

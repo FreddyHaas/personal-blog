@@ -5,19 +5,19 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
-  }
+}
 
-  #root {
+#root {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-bottom: 20px;
-  }
+}
 
-  .offscreen,   
-  .hide {
+.offscreen,
+.hide {
     display: none;
-    }
+}
 
 /* Header section */
 
@@ -27,14 +27,14 @@
     align-items: center;
     width: 100vw;
     padding: 16px;
-  }
+}
 
-  #logo {
+#logo {
     text-decoration: none;
     font-weight: 700;
     font-size: 28px;
     color: black;
-  }
+}
 
 /* Homepage with overview of posts */
 
@@ -45,13 +45,15 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
-  }
+}
 
-  .post p, .post-detail p {
+.post p,
+.post-detail p {
     white-space: pre-wrap;
-   }
+}
 
-  .post, .post-detail {
+.post,
+.post-detail {
     border: solid 1px lightgrey;
     padding: 20px;
     display: flex;
@@ -59,55 +61,57 @@
     gap: 10px;
     max-width: 900px;
     box-shadow: 0px 0px 3px 1px lightgray;
-  }
+}
 
-  .post p:nth-child(2), .post-detail p:nth-child(2) {
+.post p:nth-child(2),
+.post-detail p:nth-child(2) {
     font-size: 16px;
     color: darkgrey;
     font-weight: 500;
     padding-bottom: 10px;
-  }
+}
 
-  /* Detailed post section */
+/* Detailed post section */
 
-  .post-detail h2 {
+.post-detail h2 {
     margin-bottom: 10px;
-  }
+}
 
-  .post-detail {
+.post-detail {
     margin-top: 10px;
-  }
+}
 
-  .post-long {
+.post-long {
     padding-bottom: 30px;
     border-bottom: solid 1px lightgrey;
-  }
+}
 
-  /* Add comment section */
+/* Add comment section */
 
-  .add-comment {
+.add-comment {
     display: flex;
     flex-direction: column;
     gap: 5px;
     padding-bottom: 15px;
     border-bottom: solid 1px lightgrey;
-  }
+}
 
-  #name, #comment {
+#name,
+#comment {
     padding: 4px;
     margin-bottom: 5px;
-  }
+}
 
-  #name {
+#name {
     max-width: 200px;
-  }
+}
 
-  #comment {
+#comment {
     resize: none;
     height: 100px;
-  }
+}
 
-  button {
+button {
     width: fit-content;
     padding: 2px 20px;
     border: none;
@@ -117,34 +121,31 @@
     font-weight: 700;
     font-size: 16px;
     cursor: pointer;
-  }
+}
 
-  /* Comment section */
+/* Comment section */
 
-  .comment {
+.comment {
     margin-top: 10px;
     border-bottom: solid 1px lightgrey;
-  }
+}
 
-  .comment p:nth-child(1) {
+.comment p:nth-child(1) {
     font-weight: 700;
     font-size: 14px;
     margin-bottom: 4px;
-  }
+}
 
-  .comment p:nth-child(2) {
+.comment p:nth-child(2) {
     font-weight: 400;
     font-size: 14px;
     color: black;
-  }
+}
 
-  .comment:last-child {
+.comment:last-child {
     border: none;
-  }
+}
 
-  #no-comments {
+#no-comments {
     margin-top: 10px;
-  }
-
-
-
+}
