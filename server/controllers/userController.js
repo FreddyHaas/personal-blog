@@ -1,7 +1,7 @@
-const User = require("../models/user")
 const { body, validationResult } = require("express-validator")
 const jwt = require("jsonwebtoken")
-require("dotenv").config()
+const User = require("../models/user")
+require("dotenv").config() // eslint-disable-line
 
 // Sign up user
 exports.signUp = [
@@ -11,7 +11,7 @@ exports.signUp = [
         .isLength({ min: 1 })
         .escape(),
 
-    (req, res, next) => {
+    (req, res) => {
         const errors = validationResult(req)
 
         const user = new User({
@@ -20,7 +20,7 @@ exports.signUp = [
         })
 
         // Check if user already exists
-        User.findOne({ email: req.body.email }).exec((err, found_email) => {
+        User.findOne({ email: req.body.email }).exec((err, foundEmail) => {
             if (err) {
                 console.log(err)
                 res.status(400).json({ err })
@@ -28,7 +28,7 @@ exports.signUp = [
             }
 
             // Return error if user already exists
-            if (found_email) {
+            if (foundEmail) {
                 res.status(409).json({ message: "User already exists" })
                 return
             }
@@ -39,18 +39,17 @@ exports.signUp = [
                     user,
                     errors,
                 })
-                return
             } else {
                 // Save user information and login
-                user.save((err) => {
-                    if (err) {
+                user.save((error) => {
+                    if (error) {
                         res.status(400).json({ err })
                         return
                     }
 
-                    req.login(user, { session: false }, (err) => {
-                        if (err) {
-                            res.status(400).json({ err })
+                    req.login(user, { session: false }, (errLog) => {
+                        if (errLog) {
+                            res.status(400).json({ errLog })
                             return
                         }
 
@@ -58,7 +57,7 @@ exports.signUp = [
                             { user },
                             process.env.ACCESS_TOKEN_SECRET
                         )
-                        res.json({ accessToken: accessToken })
+                        res.json({ accessToken })
                     })
                 })
             }
