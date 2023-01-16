@@ -53,7 +53,6 @@ function PostEdit() {
             if (!err?.response) {
                 setErrMsg("No server resonse")
             } else {
-                console.log(err)
                 setErrMsg("Creation of blogpost failed")
             }
         }
