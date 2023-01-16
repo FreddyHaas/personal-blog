@@ -2,18 +2,18 @@
 
 A blog platform with two separate frontends for blog readers and blog writers
 
-[Live Demo]()
-
 ## Frontend
 
 1. The reader frontend allows to read posts and comment
 
 -> [Live Demo]()
+
 -> see 'client-visitor' directory
 
 2. The writer frontend allows authenticated users to create, edit and delete blog posts
 
 -> [Live Demo]()
+
 -> see 'client-author' directory
 
 Built with:
