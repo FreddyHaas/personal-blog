@@ -29,7 +29,8 @@ function Post({ title, text, date, id, readtime, short }) {
             <h2>{title}</h2>
             <p>
                 {date ? format(parseISO(date), "dd LLL yyyy") : ""}
-                {"     "} {readtime} min read
+                {"     "}
+                {readtime} min read
             </p>
             <p>{text}</p>
         </div>
