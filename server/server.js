@@ -3,6 +3,8 @@ const express = require("express")
 require("./passport")
 const cors = require("cors")
 
+const PORT = process.env.PORT || 3030
+
 const app = express()
 const mongoose = require("mongoose")
 const passport = require("passport")
@@ -31,4 +33,6 @@ app.use(passport.initialize())
 app.use("/user", userRouter)
 app.use("/posts", postsRouter)
 
-app.listen(3500, () => console.log("Server started on port 3500"))
+app.listen(PORT, () => {
+    console.log(`server started on port ${PORT}`)
+})
