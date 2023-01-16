@@ -4,7 +4,7 @@ A blog platform with two separate frontends for blog readers and blog writers
 
 ## Frontend
 
-1. The reader frontend allows to read posts and comment
+1. The reader frontend allows to read posts and add comments
 
 -> [Live Demo]()
 

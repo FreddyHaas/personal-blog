@@ -26,6 +26,7 @@ app.use(
             "http://localhost:3000",
             "http://localhost:3001",
             "https://personal-blog-visitor.web.app",
+            "https://personal-blog-author.web.app/",
         ],
         credentials: true,
     })
