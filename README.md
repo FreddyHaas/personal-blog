@@ -6,15 +6,11 @@ A blog platform with two separate frontends for blog readers and blog writers
 
 1. The reader frontend allows to read posts and add comments
 
--> [Live Demo](https://personal-blog-visitor.web.app/)
-
--> see code in 'client-visitor' directory
+[Live Demo](https://personal-blog-visitor.web.app/)
 
 2. The writer frontend allows authenticated users to create, edit, delete and publish/unpublish blog posts
 
--> [Live Demo](https://personal-blog-author.web.app/)
-
--> see code in 'client-author' directory
+[Live Demo](https://personal-blog-author.web.app/)
 
 Built with:
 
@@ -32,8 +28,6 @@ Built with:
 - [Express](https://expressjs.com/)
 - [MongoDB](https://www.mongodb.com/)
 - [PassportJS](https://www.passportjs.org/)
-
--> see code in 'server' directory
 
 ---
 
