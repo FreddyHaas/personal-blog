@@ -4,11 +4,11 @@ A blog platform with two separate frontends for blog readers and blog writers
 
 ## Frontend
 
-1. The reader frontend allows to read posts and add comments
+1 | The reader frontend allows to read posts and add comments
 
 [Live Demo](https://personal-blog-visitor.web.app/)
 
-2. The writer frontend allows authenticated users to create, edit, delete and publish/unpublish blog posts
+2 | The writer frontend allows authenticated users to create, edit, delete and publish/unpublish blog posts
 
 [Live Demo](https://personal-blog-author.web.app/)
 
